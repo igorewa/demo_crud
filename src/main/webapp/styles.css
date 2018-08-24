@@ -1,0 +1,23 @@
+body {
+}
+
+div.header {
+	text-align: center;
+	font-size: 90px;
+	font-family: Lucida Sans Unicode;
+}
+
+div.studentsListSelect {
+	text-align: center;
+	font-size: 30px;
+	font-family: Lucida Sans Unicode;
+}
+
+div.studentsTable {
+	width: 600px; /* Ширина таблицы */
+    border: 0px solid green; /* Рамка вокруг таблицы */
+    margin: auto; /* Выравниваем таблицу по центру окна  */
+}	
+
+ 
+ 
