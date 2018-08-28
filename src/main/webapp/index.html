@@ -7,17 +7,31 @@
     <meta charset="utf-8"/>
     <title>Demo</title>
 </head>
-<body onload="getUsersList()">
+<body onload="setUsersList()">
 <div class="header">
     <p>Люди</p>
 </div>
-<div class="studentsListSelect">
+<div class="userSelect">
     <label>
-        <select name="" id="select">
+        <select id="select" onchange="getUserInfo(value)">
             <option disabled selected>Выберите человека из списка</option>
-            <!--<option onclick="getUserInfo({usersArr.id})">{usersArr.name}</option>-->
         </select>
     </label>
+</div>
+<div class="userData" hidden>
+    <br>
+    <br>
+    <table>
+        <tr>
+            <th>Имя</th>
+            <th>Адрес</th>
+            <th>Телефон</th>
+            <th>Место работы</th>
+            <th>Должность</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </table>
 </div>
 </body>
 </html>

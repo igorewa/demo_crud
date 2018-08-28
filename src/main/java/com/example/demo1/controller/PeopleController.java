@@ -16,12 +16,14 @@ public class PeopleController {
     @Autowired
     private PeopleService peopleService;
 
+//    @RequestMapping(value = "/user_list", method = RequestMethod.POST, produces = "application/json")
     @GetMapping(value = "/user_list")
     @ResponseBody
     public List<Map<String, Object>> getUserList() throws Exception {
         return peopleService.getUsersList();
     }
 
+//    @RequestMapping(value = "/user_info/{id}", method = RequestMethod.POST, produces = "application/json")
     @GetMapping(value = "/user_info/{id}")
     @ResponseBody
     public Map<String, Object> getUserInfo(@PathVariable(value = "id") int id) throws Exception {

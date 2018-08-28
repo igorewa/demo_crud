@@ -2,6 +2,7 @@ package com.example.demo1.service.implemintation;
 
 import com.example.demo1.service.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +13,14 @@ import java.util.Map;
 @Service
 public class PeopleServiceImpl implements PeopleService {
 
+    private final static String INSERT_NEW_USER = "";
     private final static String GET_USER_LIST = "SELECT p.id,p.name FROM people p";
-    private final static String GET_USER_BY_ID = "SELECT * FROM people p WHERE p.id = ?";
+    private final static String GET_USER_BY_ID = "SELECT p.id, p.name, p.phone, a.country, a.city, a.street, a.house, wp.company_name, wp.role FROM people p LEFT JOIN addresses a ON p.addressId = a.address_id LEFT JOIN work_place wp ON p.workId = wp.work_place_id WHERE p.id = ?";
+    private final static String UPDATE_USER_DATA = "";
+    private final static String DELETE_USER = "";
 
+
+    @Qualifier("dataSource")
     @Autowired
     private DataSource dataSource;
 

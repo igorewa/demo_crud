@@ -1,23 +1,34 @@
+
 body {
+    background: url(image.jpg);
 }
 
 div.header {
-	text-align: center;
-	font-size: 90px;
-	font-family: Lucida Sans Unicode;
+    text-align: center;
+    font-size: 90px;
+    font-family: Lucida Sans Unicode, monospace;
 }
 
-div.studentsListSelect {
-	text-align: center;
-	font-size: 30px;
-	font-family: Lucida Sans Unicode;
+div.userSelect {
+    text-align: center;
+    font-size: 30px;
+    font-family: Lucida Sans Unicode, monospace;
 }
 
-div.studentsTable {
-	width: 600px; /* Ширина таблицы */
-    border: 0px solid green; /* Рамка вокруг таблицы */
+div.userData{
+    visibility: hidden;
+}
+
+table {
+    width: 600px; /* Ширина таблицы */
+    border: 1px solid black; /* Рамка вокруг таблицы */
     margin: auto; /* Выравниваем таблицу по центру окна  */
-}	
+    border-collapse: collapse;
+}
+
+td,th {
+    border: 1px solid black;
+}
 
  
  
