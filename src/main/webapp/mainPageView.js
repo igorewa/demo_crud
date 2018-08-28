@@ -35,21 +35,24 @@ function getUserInfo(id) {
 }
 
 function showUserData(user) {
-
-    var element = document.getElementById('div');
-    element.setIdAttribute('visibility', true);
-    var userId = user.id;
-    var name = user.name;
-    var address = user.country + ' ' + user.city + ' ' + user.street + ' ' + user.house;
-    var phone = user.phone;
-    var workPlace = user.company_name;
-    var role = user.role;
 }
 
-function editUserInfo(id) {
+function updateUserInfo(id) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/user/update_user/' + id, false);
+    xhr.send();
+}
+
+function addUser(values) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/user/update_user/', false);
+    xhr.send();
 }
 
 function deleteUser(id) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', '/user/delete_user/' + id, false);
+    xhr.send();
 }
 
 

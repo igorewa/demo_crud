@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
 
@@ -25,7 +26,7 @@ public class PeopleServiceImpl implements PeopleService {
     private DataSource dataSource;
 
     @Override
-    public List<Map<String, Object>> getUsersList() throws Exception {
+    public List<Map<String, Object>> getUsersList() throws SQLException {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         return jdbcTemplate.queryForList(GET_USER_LIST);
     }
@@ -34,5 +35,17 @@ public class PeopleServiceImpl implements PeopleService {
     public Map<String, Object> getUserInfo(int id) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
         return jdbcTemplate.queryForMap(GET_USER_BY_ID, id);
+    }
+
+    @Override
+    public void updateUser(int id, Map<String, Object> values) {
+    }
+
+    @Override
+    public void addUser(Map<String, Object> values) {
+    }
+
+    @Override
+    public void deleteUser(int id) {
     }
 }
