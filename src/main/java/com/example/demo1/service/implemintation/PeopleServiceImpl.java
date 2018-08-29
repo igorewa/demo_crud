@@ -16,9 +16,9 @@ public class PeopleServiceImpl implements PeopleService {
 
     private final static String INSERT_NEW_USER = "";
     private final static String GET_USER_LIST = "SELECT p.id,p.name FROM people p";
-    private final static String GET_USER_BY_ID = "SELECT p.id, p.name, p.phone, a.country, a.city, a.street, a.house, wp.company_name, wp.role FROM people p LEFT JOIN addresses a ON p.addressId = a.address_id LEFT JOIN work_place wp ON p.workId = wp.work_place_id WHERE p.id = ?";
+    private final static String GET_USER_BY_ID = "SELECT p.id, p.name, p.phone, a.country, a.index ,a.city, a.street, a.house, wp.company_name, wp.role FROM people p LEFT JOIN addresses a ON p.addressId = a.address_id LEFT JOIN work_place wp ON p.workId = wp.work_place_id WHERE p.id = ?";
     private final static String UPDATE_USER_DATA = "";
-    private final static String DELETE_USER = "";
+    private final static String DELETE_USER = "DELETE FROM people WHERE id = ?";
 
 
     @Qualifier("dataSource")
@@ -39,13 +39,19 @@ public class PeopleServiceImpl implements PeopleService {
 
     @Override
     public void updateUser(int id, Map<String, Object> values) {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(UPDATE_USER_DATA, values);
     }
 
     @Override
     public void addUser(Map<String, Object> values) {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(INSERT_NEW_USER, values);
     }
 
     @Override
     public void deleteUser(int id) {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
+        jdbcTemplate.update(DELETE_USER, id);
     }
 }

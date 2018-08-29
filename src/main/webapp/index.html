@@ -9,7 +9,10 @@
 </head>
 <body onload="setUsersList()">
 <div class="header">
-    <p>Люди</p>
+    Люди
+</div>
+<div class="addUser">
+    <button onclick="addUser()">Добавить</button>
 </div>
 <div class="userSelect">
     <label>
@@ -18,7 +21,27 @@
         </select>
     </label>
 </div>
-<div class="userData" hidden>
+<div class="userData">
+    <div id="name">
+    </div>
+    <br>
+    <div id="address">
+    </div>
+    <br>
+    <div id="phone">
+    </div>
+    <br>
+    <div id="workPlace">
+    </div>
+    <br>
+    <div id="role">
+    </div>
+    <br>
+    <div id="editButton">
+    </div>
+    <br>
+    <div id="deleteButton">
+    </div>
 </div>
 </body>
 </html>

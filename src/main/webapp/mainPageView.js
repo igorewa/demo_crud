@@ -28,31 +28,56 @@ function getUserInfo(id) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/user/user_info/' + id, false);
     xhr.send();
-    var data = xhr.response;
     var userInfo = [];
-    userInfo.unshift(data);
+    userInfo.unshift(JSON.parse(xhr.response.toString()));
     showUserData(userInfo[0])
 }
 
 function showUserData(user) {
+    var itemName = document.getElementById('name');
+    itemName.innerHTML = 'Имя: ' + user.name;
+    var itemAddress = document.getElementById('address');
+    itemAddress.innerHTML = 'Адрес: ' + user.country + ', ' + user.index + ', ' + user.city + ', ' + user.street + ', ' + user.house;
+    var itemPhone = document.getElementById('phone');
+    itemPhone.innerHTML = 'Телефон: ' + user.phone;
+    var itemWorkPlace = document.getElementById('workPlace');
+    itemWorkPlace.innerHTML = 'Место работы: ' + user.company_name;
+    var itemRole = document.getElementById('role');
+    itemRole.innerHTML = 'Должность: ' + user.role;
+    var editButton = document.getElementById('editButton');
+    editButton.innerHTML = '<button onclick="editUserInfo()">Жопа (пока не работает)</button>';
+    var deleteButton = document.getElementById('deleteButton');
+    deleteButton.innerHTML = '<button onclick="deleteUser(' + user.id +')">Ну давай, удали уже, чего ты ждёшь</button>';
 }
 
-function updateUserInfo(id) {
+function editUserInfo() {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/user/update_user/' + id, false);
+    xhr.open('POST', '/user/update_user/', false);
     xhr.send();
 }
 
 function addUser(values) {
+    // values.toJSON();
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', '/user/update_user/', false);
+    xhr.open('POST', '/user/update_user/', false);
+    // xhr.add(values);
     xhr.send();
+    if(xhr.status === 200){
+        alert('Пользователь добавлен')
+    } else
+        alert('Ошибка добавления пользователя');
+    location.reload()
 }
 
 function deleteUser(id) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', '/user/delete_user/' + id, false);
     xhr.send();
+    if(xhr.status === 200){
+        alert('Пользователь удалён')
+    } else
+        alert('Извини, я тут не причём');
+    location.reload()
 }
 
 

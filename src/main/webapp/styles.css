@@ -3,9 +3,13 @@ body {
     background: url(image.jpg);
 }
 
+div.addUser{
+    text-align: center;
+}
+
 div.header {
     text-align: center;
-    font-size: 90px;
+    font-size: 80px;
     font-family: Lucida Sans Unicode, monospace;
 }
 
@@ -16,18 +20,15 @@ div.userSelect {
 }
 
 div.userData{
-    visibility: hidden;
+    margin-top: 80px;
+    margin-left: 530px;
+    text-align: left;
+    font-size: 15px;
+    font-family: Lucida Sans Unicode, monospace;
 }
 
-table {
-    width: 600px; /* Ширина таблицы */
-    border: 1px solid black; /* Рамка вокруг таблицы */
-    margin: auto; /* Выравниваем таблицу по центру окна  */
-    border-collapse: collapse;
-}
-
-td,th {
-    border: 1px solid black;
+editButton, deleteButton{
+    text-align: center;
 }
 
  
