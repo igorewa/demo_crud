@@ -51,9 +51,7 @@ function showUserData(user) {
 }
 
 function editUserInfo() {
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '/user/update_user/', false);
-    xhr.send();
+
 }
 
 function addUser(values) {
